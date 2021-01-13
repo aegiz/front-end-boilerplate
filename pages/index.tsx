@@ -1,7 +1,9 @@
-import ControlledPopup from '../components/controlledPopup';
+import ComplexComponent from '../components/ComplexComponent';
+import ControlledPopup from '../components/ControlledPopup';
 import { FC } from 'react';
 import Image from 'next/image';
 import Layout from '../components/Layout';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -12,9 +14,16 @@ const Title = styled.h1`
 const IndexPage: FC = () => {
     return (
         <Layout title="Next.js + TypeScript + Styled components">
-            <Title>Example page</Title>
+            <Title>Homepage</Title>
             <Image src="/vercel.svg" alt="Vercel Logo" width={300} height={150} />
             <ControlledPopup />
+            <ComplexComponent />
+            <p>
+                Go to{' '}
+                <Link href="/about">
+                    <a>About page!</a>
+                </Link>
+            </p>
         </Layout>
     );
 };
