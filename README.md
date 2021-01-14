@@ -45,23 +45,29 @@ This is where all the assets will be (including .jpg and .svg).
 The `utils` folder contains all the overly complicated piece of code (for example a date manipulator).
 The hooks folder within it is a collection of useful hooks.
 
+## Coding conventions
+
+-   Any component which is used more than in one page should be externalizes to the `component` folder.
+-   For a specific page if multiple component shares the same style they should be declare as Styled-components above the JSX (possibly use inheritance)
+-   If we need a quick style fix on an element use the css property
+
 ## Naming conventions
 
 ### `components` folder
 
-TODO (always camelcase + default with a uppercase at the beginning)
+Use PascalCase (an uppercase letter at the beginning + camelCase)
 
 ### `pages` folder
 
-TODO
+Use lowercase and dashes (like URLs)
 
 ### `public` folder
 
-TODO
+Use lowercase and dashes (like URLs)
 
 ### `utils + utils/hooks` folders
 
-TODO
+Use camelCase
 
 ## Misc Notes
 
