@@ -8,6 +8,11 @@ module.exports = {
         'prettier/@typescript-eslint',
         'plugin:prettier/recommended',
     ],
+    'env': {
+        'browser': true,
+        'amd': true,
+        'node': true,
+    },
     parserOptions: {
         ecmaVersion: 2020,
         sourceType: 'module',

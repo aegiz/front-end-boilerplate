@@ -56,7 +56,7 @@ const IndexPage: FC = () => {
     return (
         <Layout title="Next.js + TypeScript + Styled components">
             <TitleWithTheme>I am an h1</TitleWithTheme>
-            <SubtitleWithCustomProps display>
+            <SubtitleWithCustomProps display="true">
                 <SubtitleWithCombinedPropsAndTheme font="big">
                     I am an h2 which combined props and theme
                 </SubtitleWithCombinedPropsAndTheme>
