@@ -1,13 +1,13 @@
-import { FC } from 'react';
 import Hero from './Hero';
 import Layout from '../../components/Layout';
 import Link from 'next/link';
+import Title from './Title';
 
-const AboutPage: FC = () => {
+const AboutPage = (): JSX.Element => {
     return (
         <Layout>
             <article>
-                <h1>Welcome to the About page!</h1>
+                <Title title="hello world" />
                 <Hero />
                 <Link href="/">Back home</Link>
             </article>

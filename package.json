@@ -11,6 +11,10 @@
     },
     "author": "Adrien Rahier",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/aegiz/next-ts-styledcomponents-boilerplate"
+    },
     "dependencies": {
         "@types/node": "^14.14.20",
         "@types/react": "^17.0.0",

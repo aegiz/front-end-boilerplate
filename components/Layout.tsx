@@ -1,13 +1,12 @@
-import { FC, ReactNode } from 'react';
-
 import Head from 'next/head';
+import { ReactNode } from 'react';
 
-type Props = {
+interface Props {
     children?: ReactNode;
     title?: string;
-};
+}
 
-const Layout: FC<Props> = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = 'This is the default title' }: Props): JSX.Element => (
     <>
         <Head>
             <title>{title}</title>

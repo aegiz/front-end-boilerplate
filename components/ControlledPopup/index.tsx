@@ -1,8 +1,7 @@
-import { FC, useState } from 'react';
-
 import { Popup } from 'semantic-ui-react';
+import { useState } from 'react';
 
-const ControlledPopup: FC = () => {
+const ControlledPopup = (): JSX.Element => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <Popup

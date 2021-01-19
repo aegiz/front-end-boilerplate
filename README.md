@@ -45,29 +45,46 @@ This is where all the assets will be (including .jpg and .svg).
 The `utils` folder contains all the overly complicated piece of code (for example a date manipulator).
 The hooks folder within it is a collection of useful hooks.
 
-## Coding conventions
+## Conventions
+
+### Naming conventions
+
+#### For files in general
+
+-   Use `.ts` extension for pure JS file, use `.tsx` extension for returned JSX file
+
+#### For the `components` folder
+
+Use `PascalCase` (an uppercase letter at the beginning + `camelCase`)
+
+#### For the `pages` folder
+
+Use lowercase and dashes (like URL)
+
+#### For the public` folder
+
+Use lowercase and dashes (like URL)
+
+#### For the `utils + utils/hooks` folders
+
+Use `camelCase`
+
+### Coding convention
+
+#### React code
 
 -   Any component which is used more than in one page should be externalizes to the `component` folder.
--   For a specific page if multiple component shares the same style they should be declare as Styled-components above the JSX (possibly use inheritance)
+-   Always export default at the end of file
+-   For components with props always them with an interface
+-   Don't use `defaultProps`
+-   Don't import React (unless you have to use `useState` or similar)
+-   Don't use React FC
+-   Always return a type for functions
+
+#### Styled Components
+
+-   For a specific page, if multiple component shares the same style they should be declare as Styled components above the JSX (possibly use inheritance)
 -   If we need a quick style fix on an element use the css property
-
-## Naming conventions
-
-### `components` folder
-
-Use PascalCase (an uppercase letter at the beginning + camelCase)
-
-### `pages` folder
-
-Use lowercase and dashes (like URLs)
-
-### `public` folder
-
-Use lowercase and dashes (like URLs)
-
-### `utils + utils/hooks` folders
-
-Use camelCase
 
 ## Misc Notes
 

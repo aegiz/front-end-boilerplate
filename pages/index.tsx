@@ -1,11 +1,9 @@
-import styled, { css } from 'styled-components';
-
 import ComplexComponent from '../components/ComplexComponent';
 import ControlledPopup from '../components/ControlledPopup';
-import { FC } from 'react';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import styled from 'styled-components';
 
 /*
  * Theme & Media queries
@@ -14,7 +12,7 @@ import Link from 'next/link';
 const TitleWithTheme = styled.h1`
     color: ${(props) => props.theme.colors.black};
     ${(props) => props.theme.mediaQueries.s} {
-        color: ${({ theme }) => theme.colors.grey.main};
+        color: ${(props) => props.theme.colors.grey.main};
     }
 `;
 
@@ -23,9 +21,9 @@ const TitleWithTheme = styled.h1`
  */
 
 const SubtitleWithCustomProps = styled.h2`
-    // Render of 1 CSS property
+    // Render 1 CSS property via props
     display: ${(props) => (props.display ? `block` : `none`)};
-    // Render of multiple CSS properties
+    // Render multiple CSS properties via props
     ${(props) => (props.display ? `opacity:1; z-index: 1;` : `opacity:0`)}
 `;
 
@@ -52,7 +50,7 @@ const SubSubTitleWithColor = styled(SubSubTitle)`
     color: red;
 `;
 
-const IndexPage: FC = () => {
+const IndexPage = (): JSX.Element => {
     return (
         <Layout title="Next.js + TypeScript + Styled components">
             <TitleWithTheme>I am an h1</TitleWithTheme>
@@ -66,11 +64,10 @@ const IndexPage: FC = () => {
             <SubSubTitleWithColor>I am an h3 with color</SubSubTitleWithColor>
             <p
                 css={`
-                    padding: 8px;
                     color: ${({ theme }) => theme.colors.grey.light}}
                 `}
             >
-                I am an element which is inlined styles
+                I am an element which has a specific style so no need to recreate it
             </p>
             <Image src="/vercel.svg" alt="Vercel Logo" width={300} height={150} />
             <ControlledPopup />
