@@ -1,13 +1,12 @@
 import Hero from './Hero';
 import Layout from '../../components/Layout';
 import Link from 'next/link';
-import Title from './Title';
 
 const AboutPage = (): JSX.Element => {
     return (
         <Layout>
             <article>
-                <Title title="hello world" />
+                <h1>hello world</h1>
                 <Hero />
                 <Link href="/">Back home</Link>
             </article>

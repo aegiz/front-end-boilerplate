@@ -2,7 +2,7 @@ import { Popup } from 'semantic-ui-react';
 import { useState } from 'react';
 
 const ControlledPopup = (): JSX.Element => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     return (
         <Popup
             trigger={<button>click to open</button>}
