@@ -4,7 +4,7 @@ interface Props {
     url?: string;
 }
 
-const Hero = ({ url = '/defaut.png' }: Props): JSX.Element => {
+const Hero = ({ url = '/vercel.svg' }: Props): JSX.Element => {
     return <Image src={url} alt="Vercel Logo" width={800} height={150} />;
 };
 

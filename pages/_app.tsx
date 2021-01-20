@@ -1,4 +1,4 @@
-import { Styles, theme } from '../utils/theme';
+import { Styles, theme } from '@utils/theme';
 
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';

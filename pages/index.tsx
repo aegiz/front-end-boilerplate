@@ -1,7 +1,7 @@
-import ComplexComponent from '../components/ComplexComponent';
-import ControlledPopup from '../components/ControlledPopup';
+import ComplexComponent from '@components/ComplexComponent';
+import ControlledPopup from '@components/ControlledPopup';
 import Image from 'next/image';
-import Layout from '../components/Layout';
+import Layout from '@components/Layout';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -53,13 +53,11 @@ const SubSubTitleWithColor = styled(SubSubTitle)`
 const IndexPage = (): JSX.Element => {
     return (
         <Layout title="Next.js + TypeScript + Styled components">
-            <TitleWithTheme>I am an h1</TitleWithTheme>
-            <SubtitleWithCustomProps display="true">
-                <SubtitleWithCombinedPropsAndTheme font="big">
-                    I am an h2 which combined props and theme
-                </SubtitleWithCombinedPropsAndTheme>
-                I am an h2 with custom props
-            </SubtitleWithCustomProps>
+            <TitleWithTheme>I am the boilerplate home</TitleWithTheme>
+            <SubtitleWithCustomProps display="true">I am an h2 with custom props</SubtitleWithCustomProps>
+            <SubtitleWithCombinedPropsAndTheme font="big">
+                I am an h2 which combined props and theme
+            </SubtitleWithCombinedPropsAndTheme>
             <SubSubTitle>I am an h3</SubSubTitle>
             <SubSubTitleWithColor>I am an h3 with color</SubSubTitleWithColor>
             <p

@@ -25,6 +25,9 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
     },
     settings: {
+        'import/resolver': {
+            typescript: {}, // this loads <rootdir>/tsconfig.json to eslint
+        },
         react: {
             version: 'detect',
         },

@@ -1,10 +1,17 @@
-import { CSSProp, createGlobalStyle } from 'styled-components';
+/**
+ * Declare `css` as a valid attribute (useful for styled component)
+ */
 
+import { CSSProp, createGlobalStyle } from 'styled-components';
 declare module 'react' {
     interface HTMLAttributes<T> extends DOMAttributes<T> {
         css?: CSSProp;
     }
 }
+
+/**
+ * Declare CSS theme
+ */
 
 export const theme = {
     font:
