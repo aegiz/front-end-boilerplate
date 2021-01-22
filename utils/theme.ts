@@ -1,11 +1,15 @@
 /**
- * Declare `css` as a valid attribute (useful for styled component)
+ * Declare `css` as a valid attribute
+ * Useful for styled component see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/31245
  */
 
-import { CSSProp, createGlobalStyle } from 'styled-components';
+import { CSSObject, createGlobalStyle } from 'styled-components';
+
+type CSSFunction = (args: { theme: typeof theme }) => CSSObject;
+
 declare module 'react' {
     interface HTMLAttributes<T> extends DOMAttributes<T> {
-        css?: CSSProp;
+        css?: CSSFunction | string;
     }
 }
 
@@ -79,12 +83,12 @@ export const Styles = createGlobalStyle`
 	}
 	body {
 		background: white;
-    margin: 0;
-    padding: 0;
-    font-family: ${(props) => props.theme.font};
-		font-size: ${({ theme }) => theme.fontSizes.normal};
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+        margin: 0;
+        padding: 0;
+        font-family: ${theme.font};
+        font-size: ${theme.fontSizes.normal};
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 	}
 	h1,	h2,	h3,	h4,	h5,	h6 {
 		margin: 0;

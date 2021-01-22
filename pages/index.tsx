@@ -20,18 +20,22 @@ const TitleWithTheme = styled.h1`
  * Custom props
  */
 
-const SubtitleWithCustomProps = styled.h2`
+const SubtitleWithCustomPropsBoolean = styled.h2<{ $display: boolean }>`
     // Render 1 CSS property via props
-    display: ${(props) => (props.display ? `block` : `none`)};
+    display: ${(props) => (props.$display ? `block` : `none`)};
     // Render multiple CSS properties via props
-    ${(props) => (props.display ? `opacity:1; z-index: 1;` : `opacity:0`)}
+    ${(props) => (props.$display ? `opacity:1; z-index: 1;` : `opacity:0`)}
+`;
+
+const SubtitleWithCustomPropsOther = styled.h2<{ greyVariant: string }>`
+    color: ${(props) => props.theme.colors.grey[props.greyVariant]};
 `;
 
 /*
  * Combining props + theme together
  */
 
-const SubtitleWithCombinedPropsAndTheme = styled.h2`
+const SubtitleWithCombinedPropsAndTheme = styled.h2<{ font: string }>`
     font-size: ${(props) => (props.font === 'big' ? props.theme.fontSizes['xl'] : props.theme.fontSizes['l'])};
     // Note that the above line can be refactored as:
     font-size: ${(props) => props.theme.fontSizes[props.font === 'big' ? 'xl' : 'l']};
@@ -42,8 +46,8 @@ const SubtitleWithCombinedPropsAndTheme = styled.h2`
  */
 
 const SubSubTitle = styled.h3`
-    font-size: ${({ theme }) => theme.fontSizes['normal']};
-    color: ${({ theme }) => theme.colors.black};
+    font-size: ${(props) => props.theme.fontSizes['normal']};
+    color: ${(props) => props.theme.colors.black};
 `;
 
 const SubSubTitleWithColor = styled(SubSubTitle)`
@@ -54,7 +58,12 @@ const IndexPage = (): JSX.Element => {
     return (
         <Layout title="Next.js + TypeScript + Styled components">
             <TitleWithTheme>I am the boilerplate home</TitleWithTheme>
-            <SubtitleWithCustomProps display="true">I am an h2 with custom props</SubtitleWithCustomProps>
+            <SubtitleWithCustomPropsBoolean $display>
+                I am an h2 with a custom props of type boolean
+            </SubtitleWithCustomPropsBoolean>
+            <SubtitleWithCustomPropsOther greyVariant="light">
+                I am an h2 with a custom props of other types
+            </SubtitleWithCustomPropsOther>
             <SubtitleWithCombinedPropsAndTheme font="big">
                 I am an h2 which combined props and theme
             </SubtitleWithCombinedPropsAndTheme>
@@ -62,10 +71,17 @@ const IndexPage = (): JSX.Element => {
             <SubSubTitleWithColor>I am an h3 with color</SubSubTitleWithColor>
             <p
                 css={`
-                    color: ${({ theme }) => theme.colors.grey.light}}
+                    color: blue;
                 `}
             >
-                I am an element which has a specific style so no need to recreate it
+                I am an element with a specific theme style
+            </p>
+            <p
+                css={({ theme }) => ({
+                    color: theme.colors.grey.light,
+                })}
+            >
+                I am an element with a specific theme style
             </p>
             <Image src="/vercel.svg" alt="Vercel Logo" width={300} height={150} />
             <ControlledPopup />
@@ -74,6 +90,9 @@ const IndexPage = (): JSX.Element => {
                 Go to{' '}
                 <Link href="/about">
                     <a>About page!</a>
+                </Link>
+                <Link href="/signup">
+                    <a>To the signup page</a>
                 </Link>
             </p>
         </Layout>

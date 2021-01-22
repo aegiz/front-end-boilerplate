@@ -17,9 +17,9 @@
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "sourceMap": true,
-        "strict": false,
+        "strict": true,
         "target": "es5"
     },
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules", "pages/_document.tsx"],
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
