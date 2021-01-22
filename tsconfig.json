@@ -12,7 +12,8 @@
         "noEmit": true,
         "paths": {
             "@components/*": ["components/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@hooks/*": ["utils/hooks/*"]
         },
         "resolveJsonModule": true,
         "skipLibCheck": true,
@@ -20,6 +21,6 @@
         "strict": true,
         "target": "es5"
     },
-    "exclude": ["node_modules", "pages/_document.tsx"],
+    "exclude": ["node_modules", "pages/_document.tsx", "utils/hooks/*"],
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
