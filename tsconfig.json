@@ -12,7 +12,8 @@
         "noEmit": true,
         "paths": {
             "@components/*": ["components/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@hooks/*": ["utils/hooks/*"]
         },
         "resolveJsonModule": true,
         "skipLibCheck": true,
