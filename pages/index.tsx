@@ -1,102 +1,95 @@
-import ComplexComponent from '@components/ComplexComponent';
 import ControlledPopup from '@components/ControlledPopup';
 import Image from 'next/image';
 import Layout from '@components/Layout';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-/*
- * Theme & Media queries
- */
-
-const TitleWithTheme = styled.h1`
-    color: ${(props) => props.theme.colors.black};
-    ${(props) => props.theme.mediaQueries.s} {
-        color: ${(props) => props.theme.colors.grey.main};
-    }
-`;
-
-/*
- * Custom props
- */
-
-const SubtitleWithCustomPropsBoolean = styled.h2<{ $display: boolean }>`
-    // Render 1 CSS property via props
-    display: ${(props) => (props.$display ? `block` : `none`)};
-    // Render multiple CSS properties via props
-    ${(props) => (props.$display ? `opacity:1; z-index: 1;` : `opacity:0`)}
-`;
-
-const SubtitleWithCustomPropsOther = styled.h2<{ greyVariant: string }>`
-    color: ${(props) => props.theme.colors.grey[props.greyVariant]};
-`;
-
-/*
- * Combining props + theme together
- */
-
-const SubtitleWithCombinedPropsAndTheme = styled.h2<{ font: string }>`
-    font-size: ${(props) => (props.font === 'big' ? props.theme.fontSizes['xl'] : props.theme.fontSizes['l'])};
-    // Note that the above line can be refactored as:
-    font-size: ${(props) => props.theme.fontSizes[props.font === 'big' ? 'xl' : 'l']};
-`;
-
-/*
- * Inheritance
- */
-
-const SubSubTitle = styled.h3`
-    font-size: ${(props) => props.theme.fontSizes['normal']};
-    color: ${(props) => props.theme.colors.black};
-`;
-
-const SubSubTitleWithColor = styled(SubSubTitle)`
-    color: red;
-`;
-
 const IndexPage = (): JSX.Element => {
     return (
         <Layout title="Next.js + TypeScript + Styled components">
-            <TitleWithTheme>I am the boilerplate home</TitleWithTheme>
-            <SubtitleWithCustomPropsBoolean $display>
-                I am an h2 with a custom props of type boolean
-            </SubtitleWithCustomPropsBoolean>
-            <SubtitleWithCustomPropsOther greyVariant="light">
-                I am an h2 with a custom props of other types
-            </SubtitleWithCustomPropsOther>
-            <SubtitleWithCombinedPropsAndTheme font="big">
-                I am an h2 which combined props and theme
-            </SubtitleWithCombinedPropsAndTheme>
-            <SubSubTitle>I am an h3</SubSubTitle>
-            <SubSubTitleWithColor>I am an h3 with color</SubSubTitleWithColor>
+            <TitleWithTheme>I am a boilertplate title</TitleWithTheme>
+            <TitleWithMediaQuery>This title will be hidden on mobile</TitleWithMediaQuery>
+            <SubTitleWithCustomProp zindex={2}>I am a subtitle passing a custom prop (a zindex)</SubTitleWithCustomProp>
+            <SpanWithBooleanModifier>I am a simple span</SpanWithBooleanModifier>
+            <SpanWithBooleanModifier $bold>... And I am a bold span</SpanWithBooleanModifier>
+            <Paragraph>I am a simple paragraph</Paragraph>
+            <ParagraphRed>I am a paragraph in Red</ParagraphRed>
+            <BigParagraph fontSize="2xl">I am a paragraph which combines props and theme</BigParagraph>
             <p
                 css={`
                     color: blue;
                 `}
             >
-                I am an element with a specific theme style
+                I am an element with a quick added style
             </p>
             <p
                 css={({ theme }) => ({
                     color: theme.colors.grey.light,
                 })}
             >
-                I am an element with a specific theme style
+                I am an element with a quick added theme style
             </p>
             <Image src="/vercel.svg" alt="Vercel Logo" width={300} height={150} />
             <ControlledPopup />
-            <ComplexComponent />
             <p>
                 Go to{' '}
                 <Link href="/about">
                     <a>About page!</a>
                 </Link>
-                <Link href="/signup">
-                    <a>To the signup page</a>
-                </Link>
             </p>
         </Layout>
     );
 };
+
+/*
+ * Theme
+ */
+
+const TitleWithTheme = styled.h1`
+    color: ${(props) => props.theme.colors.black};
+`;
+
+/*
+ * Media queries
+ */
+
+const TitleWithMediaQuery = styled.h1`
+    ${(props) => props.theme.mediaQueries.s} {
+        display: none;
+    }
+`;
+
+/*
+ * Passing a prop
+ */
+
+const SubTitleWithCustomProp = styled.h2<{ zindex?: number }>`
+    z-index: ${(props) => props.zindex};
+`;
+
+/*
+ * Modifiers (using boolean) - 2 cases max
+ */
+
+const SpanWithBooleanModifier = styled.span<{ $bold?: boolean }>`
+    font-weight: ${(props) => (props.$bold ? `bold` : `normal`)};
+`;
+
+/*
+ * Modifiers (using inheritance) - * cases
+ */
+
+const Paragraph = styled.p`
+    color: ${(props) => props.theme.colors.black};
+`;
+
+const ParagraphRed = styled(Paragraph)`
+    color: red;
+`;
+
+const BigParagraph = styled.p<{ fontSize: string }>`
+    // Combine props and theme
+    font-size: ${(props) => props.theme.fontSizes[props.fontSize]};
+`;
 
 export default IndexPage;
