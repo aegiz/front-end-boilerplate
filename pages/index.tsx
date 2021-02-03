@@ -1,4 +1,5 @@
 import ControlledPopup from '@components/ControlledPopup';
+import Heading from '@components/Heading';
 import Image from 'next/image';
 import Layout from '@components/Layout';
 import Link from 'next/link';
@@ -37,6 +38,7 @@ const IndexPage = (): JSX.Element => {
                     <a>About page!</a>
                 </Link>
             </p>
+            <Heading level={3}>I am a level 3 heading!</Heading>
         </Layout>
     );
 };
