@@ -4,8 +4,10 @@ import Image from 'next/image';
 import Layout from '@components/Layout';
 import Link from 'next/link';
 import styled from 'styled-components';
+import useWindowDimensions from '@hooks/useWindowDimensions';
 
 const IndexPage = (): JSX.Element => {
+    const { width, height } = useWindowDimensions();
     return (
         <Layout title="Next.js + TypeScript + Styled components">
             <TitleWithTheme>I am a boilertplate title</TitleWithTheme>
@@ -37,6 +39,9 @@ const IndexPage = (): JSX.Element => {
                 <Link href="/about">
                     <a>About page!</a>
                 </Link>
+            </p>
+            <p>
+                Width: {width} ~ Height: {height}
             </p>
             <Heading level={3}>I am a level 3 heading!</Heading>
         </Layout>
