@@ -1,0 +1,25 @@
+{
+    "Create Custom Hook for the Business Logic of a single component": {
+        "prefix": "businesslogic",
+        "body": [
+            "/* ",
+            "\tUsage in component code:",
+            "\timport useBusinessLogic from './useBusinessLogic';",
+            "\tconst { myGreatFct } = useBusinessLogic();",
+            "*/",
+            "const useBusinessLogic = (): typeof returnedValue => {",
+            "\tconst myGreatFct = () => {",
+            "",
+            "\t}",
+            "\tconst returnedValue = {",
+            "\t\tmyGreatFct,",
+            "\t};",
+            "",
+            "\treturn returnedValue",
+            "};",
+            "",
+            "export default useBusinessLogic;"
+        ],
+        "description": "Create Custom Hook for the Business Logic of a single component"
+    }
+}

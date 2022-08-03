@@ -1,0 +1,7 @@
+{
+    "Typescript React Function Component": {
+        "prefix": "its",
+        "body": ["export { default } from './${TM_DIRECTORY/^.+\\/(.*)$/${1:/capitalize}/}';"],
+        "description": "Quickly create an index.ts file with an export in it"
+    }
+}

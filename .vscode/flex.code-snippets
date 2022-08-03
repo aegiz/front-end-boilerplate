@@ -1,0 +1,12 @@
+{
+    "Styled component": {
+        "prefix": "flex",
+        "body": [
+            "display: flex;",
+            "flex-direction: ${1:row};",
+            "align-items: ${2:flex-start};",
+            "justify-content: ${3:flex-start};"
+        ],
+        "description": "Import flex css properties to components"
+    }
+}

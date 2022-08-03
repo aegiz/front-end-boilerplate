@@ -1,0 +1,27 @@
+{
+    "Typescript React Function Component": {
+        "prefix": "fct",
+        "body": [
+            "import styled from 'styled-components';",
+            "",
+            "interface Props {",
+            "\t$1",
+            "}",
+            "",
+            "const ${TM_DIRECTORY/^.+\\/(.*)$/${1:/capitalize}/} = ({$2}: Props): JSX.Element => {",
+            "\treturn(",
+            "\t\t<S_${TM_DIRECTORY/^.+\\/(.*)$/${1:/capitalize}/}Container>",
+            "\t\t\t$3",
+            "\t\t</S_${TM_DIRECTORY/^.+\\/(.*)$/${1:/capitalize}/}Container>",
+            "\t);",
+            "};",
+            "",
+            "const S_${TM_DIRECTORY/^.+\\/(.*)$/${1:/capitalize}/}Container = styled.div`",
+            "\tmargin: 0;",
+            "`;",
+            "",
+            "export default ${TM_DIRECTORY/^.+\\/(.*)$/${1:/capitalize}/};"
+        ],
+        "description": "Typescript React Function Component"
+    }
+}

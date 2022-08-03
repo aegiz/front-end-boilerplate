@@ -1,0 +1,8 @@
+{
+    "Icon snippet": {
+        "prefix": "icon",
+        "body": ["import { $0 } from '@services/Icons';"],
+        "description": "give a icon import"
+    },
+
+}

@@ -1,0 +1,7 @@
+{
+    "Styled component": {
+        "prefix": "theme",
+        "body": ["${({ theme }) => theme.colors.${1:black.pure}};"],
+        "description": "Define the css property using the theme object"
+    }
+}

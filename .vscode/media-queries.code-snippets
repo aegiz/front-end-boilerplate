@@ -1,0 +1,7 @@
+{
+    "Styled component": {
+        "prefix": "mq",
+        "body": ["${({ theme }) => theme.mq('${1:s | m | l | xl}')} {", "    ${2:display: none};", "}"],
+        "description": "Define quickly a media query"
+    }
+}

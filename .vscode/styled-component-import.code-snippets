@@ -1,0 +1,12 @@
+{
+    "Styled component": {
+        "prefix": "stti",
+        "body": [
+            "import styled from 'styled-components';",
+            "const ${1:MyComponent} = styled.${2:div}`",
+            "    ${3:margin: 0};",
+            "`;"
+        ],
+        "description": "Quickly create a styled component"
+    }
+}

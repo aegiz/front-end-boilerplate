@@ -1,0 +1,7 @@
+{
+    "Styled component": {
+        "prefix": "fw",
+        "body": ["font-weight: ${({ theme }) => theme.fontWeights.${1:medium}};"],
+        "description": "define font-weight fast"
+    }
+}

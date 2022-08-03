@@ -1,0 +1,41 @@
+{
+    "This will create a custom React Query useQuery Hook": {
+        "prefix": "rqget",
+        "body": [
+            "/* ",
+            "\tUsage in business logic code:",
+            "\timport { ${TM_FILENAME_BASE} } from '@services/ReactQuery/queries';",
+            "\timport { useAuth } from '@contexts/auth';",
+            "\t...",
+            "\tconst { accessToken } = useAuth();",
+            "\tconst { status: customStatusName } = ${TM_FILENAME_BASE}({",
+            "\t\tenabled: !!accessToken,",
+            "\t});",
+            "*/",
+            "import { UseQueryResult, useQuery } from 'react-query';",
+            "",
+            "import { AxiosError } from 'axios';",
+            "import { CustomUseQueryOptions } from '../types';",
+            "import { api } from '@services/api';",
+            "import queryKeys from '../queryKeys';",
+            "",
+            "type ReturnedType = {",
+            "\thello: string;",
+            "}[];",
+            "",
+            "const ${TM_FILENAME_BASE} = (options: CustomUseQueryOptions<ReturnedType>): UseQueryResult<ReturnedType, AxiosError> => {",
+            "\tconst ${1:my}QueryFn = async () => {",
+            "\t\treturn api.get<{ ${3:something}: ReturnedType }>(`/${2:custom-endpoint}`)",
+            "\t\t\t.then(({ data }) => data.${3:something});",
+            "\t};",
+            "",
+            "\tconst ${1:my}Query = useQuery<ReturnedType, AxiosError>(queryKeys.${4}(), ${1:my}QueryFn, options);",
+            "",
+            "\treturn ${1:my}Query;",
+            "};",
+            "",
+            "export default ${TM_FILENAME_BASE};"
+        ],
+        "description": "This will create a custom React Query useQuery Hook"
+    }
+}
